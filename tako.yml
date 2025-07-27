@@ -1,0 +1,14 @@
+version: 0.1.0
+artifacts:
+    default:
+        path: .
+        ecosystem: generic
+workflows:
+    default:
+        steps:
+            - run: echo 'default workflow'
+subscriptions:
+    - artifact: tako-test/java-binary-incompatibility-repo-c:default
+      events:
+        - updated
+      workflow: default
